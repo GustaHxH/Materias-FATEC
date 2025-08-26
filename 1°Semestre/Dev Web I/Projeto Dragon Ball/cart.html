@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e43939;
+        }
+        .cart-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .product-name {
+            font-weight: bold;
+        }
+        .total {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .total-label {
+            font-weight: bold;
+        }
+        .payment-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .payment-button {
+            padding: 10px 20px;
+            background-color: #ff6363;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cart-container">
+    <h1>Seu Carrinho de Compras</h1>
+
+    <div class="products">
+    </div>
+
+    <div class="total">
+        <span class="total-label">Total:</span>
+        <span class="total-value">R$ 0,00</span>
+    </div>
+
+    <div class="payment-buttons">
+        <button class="payment-button" onclick="payWithPix()">Pagar com Pix</button>
+        <button class="payment-button" onclick="payWithCreditCard()">Pagar com Cartão de Crédito</button>
+    </div>
+</div>
+
+<script>
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    var productsContainer = document.querySelector('.products');
+
+    var total = 0;
+
+    cart.forEach(function(product) {
+        var productElement = document.createElement('div');
+        productElement.classList.add('product');
+        
+        var productNameElement = document.createElement('div');
+        productNameElement.classList.add('product-name');
+        productNameElement.textContent = product.name;
+
+        var productPriceElement = document.createElement('div');
+        productPriceElement.textContent = 'Preço: R$ ' + product.price.toFixed(2);
+
+        productElement.appendChild(productNameElement);
+        productElement.appendChild(productPriceElement);
+        productsContainer.appendChild(productElement);
+
+        total += product.price;
+    });
+
+    var totalValueElement = document.querySelector('.total-value');
+    totalValueElement.textContent = 'R$ ' + total.toFixed(2);
+
+    function payWithPix() {
+        alert('Pagamento com Pix');
+    }
+
+    function payWithCreditCard() {
+        alert('Pagamento com Cartão de Crédito');
+    }
+</script>
+
+</body>
+</html>

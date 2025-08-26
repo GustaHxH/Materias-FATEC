@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja DBZ</title>
+    <style>
+        body {
+            background-color: #e43939;
+        }
+        .store-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: calc(33.33% - 20px);
+            box-sizing: border-box;
+            position: relative;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .add-to-cart, .clear-cart-btn, .view-cart-btn {
+            background-color: #ff6363;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+            border-radius: 5px;
+            height: 40px;
+        }
+        .view-cart-container {
+            text-align: center;
+        }
+        .view-cart-btn {
+            margin-top: 20px;
+        }
+        .store-container h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="store-container">
+    <h1>Escolha seus produtos</h1>
+
+    <div class="row">
+        <div class="product">
+            <div class="product-name">Action figure Vegetto</div>
+            <img src="Assets/Vegetto.jpg" alt="">
+            <span class="product-price">R$ 62,99</span>
+            <p>Action figure do Vegetto SSJ blue 10Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Vegetto', 62.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <div class="product-name">Action figure Goku</div>
+            <img src="Assets/Goku.jpg" alt="">
+            <span class="product-price">R$ 85,00</span>
+            <p>Action figure do Goku base 15Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Goku', 85.00)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <div class="product-name">Action figure Vegetta</div>
+            <img src="Assets/Vegetta.jpg" alt="">
+            <span class="product-price">R$ 84,00</span>
+            <p>Action figure do Vegetta SSJ 1 15Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Vegetta', 84.00)">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="product">
+            <div class="product-name">Funko POP Gohan</div>
+            <img src="Assets/FunkoGohan.jpg" alt="">
+            <span class="product-price">R$ 119,99</span>
+            <p>Funko POP Gohan 10Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Funko POP Gohan', 119.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <div class="product-name">Funko POP Bills</div>
+            <img src="Assets/FunkoBills.jpg" alt="">
+            <span class="product-price">R$ 128,99</span>
+            <p>Funko POP Bills 10Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Funko POP Bills', 128.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="product">
+            <div class="product-name">Funko POP Whis</div>
+            <img src="Assets/FunkoWhis.jpg" alt="">
+            <span class="product-price">R$ 145,98</span>
+            <p>Funko POP Whis 10Cm.</p>
+            <button class="add-to-cart" onclick="addToCart('Funko POP Whis', 145.98)">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="view-cart-container">
+            <button class="clear-cart-btn" onclick="clearCart()">Limpar Carrinho</button>
+            <button class="view-cart-btn" onclick="viewCart()">Ver Carrinho (<span id="cart-count">0</span> itens)</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addToCart(productName, productPrice) {
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name: productName, price: productPrice });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount(); 
+        alert('Produto adicionado ao carrinho!');
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        updateCartCount();
+        alert('Carrinho limpo!');
+    }
+
+    function updateCartCount() {
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function viewCart() {
+        window.location.href = 'cart.html';
+    }
+
+    updateCartCount();
+</script>
+
+</body>
+</html>

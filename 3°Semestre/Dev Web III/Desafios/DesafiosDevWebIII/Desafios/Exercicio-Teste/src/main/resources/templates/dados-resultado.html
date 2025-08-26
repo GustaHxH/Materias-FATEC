@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado dos seus dados</title>
+</head>
+    <body>
+        <span th:text="'O seu nome é: ' +${nome}"></span>
+        <br><br>
+        <span th:text="'A sua cidade é: ' +${cidade}"></span>
+        <br><br>
+        <span th:text="'E o seu Estado é: ' +${estado}"></span>
+        <br><br>
+        <a href="/dados">Voltar</a>
+    </body>
+</html>

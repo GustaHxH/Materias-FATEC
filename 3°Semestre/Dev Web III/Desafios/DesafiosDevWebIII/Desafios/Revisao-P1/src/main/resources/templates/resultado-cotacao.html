@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sua Cotação</title>
+</head>
+    <body>
+    <span th:text="'A cotação do dolar é de: ' +${dolar}"></span>
+    <br><br>
+    <span th:text="'O valor em real a ser convertido é de: ' + ${real}"></span>
+    <br><br>
+    <span th:text="'O valor convertido é de: ' +${calculo}"></span>
+    <br><br>
+
+    <a href="/valor">Voltar a página anterior</a>
+    </body>
+</html>
