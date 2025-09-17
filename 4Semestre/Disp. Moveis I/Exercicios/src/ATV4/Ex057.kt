@@ -1,3 +1,5 @@
+package ATV4
+
 fun main(){
     val tamanho = 5
     val A = IntArray(tamanho)

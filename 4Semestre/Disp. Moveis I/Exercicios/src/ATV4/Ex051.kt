@@ -1,3 +1,5 @@
+package ATV4
+
 fun main(){
     val A = linkedSetOf<Int>()
     for(i in 1..10){

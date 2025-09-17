@@ -1,3 +1,5 @@
+package ATV4
+
 fun main(){
     val notas1 = linkedMapOf<Double, String>()
     notas1.put(6.0,"Ana")
