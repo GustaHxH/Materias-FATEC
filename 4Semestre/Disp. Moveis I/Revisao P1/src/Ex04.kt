@@ -1,5 +1,3 @@
-package ATV4
-
 fun main(){
     println("Digite a temperatura em C°")
     val celcius = readLine()?.toDoubleOrNull() ?: return println("Número inválido!")

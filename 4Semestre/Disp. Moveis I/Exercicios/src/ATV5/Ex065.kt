@@ -8,7 +8,7 @@ class Funcionario(val nome:String, var salarioBruto:Double, val desconto:Double)
     }
 }
 
-fun main(){
+fun main() {
     println("Qual o nome deste funcionário: ")
     val nome: String = readLine()!!
 
