@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **APP SIMULADOR DA MEGA SENA**
 
 
@@ -57,4 +58,6 @@ Clique em **LIMPAR** para limpar os números sorteados.
 JAVA
 
 Android Studio
+=======
+>>>>>>> 6124c857534bb5a7feab40f7649d5c9daca3cd28
 
