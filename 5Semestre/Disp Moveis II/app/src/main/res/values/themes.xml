@@ -1,9 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MegaSena" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<resources>
+
+    <style name="Theme.Megasena" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="num">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@android:drawable/editbox_background</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
-    <style name="Theme.MegaSena" parent="Base.Theme.MegaSena" />
 </resources>
